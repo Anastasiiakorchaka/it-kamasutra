@@ -1,5 +1,6 @@
-.item {
+.allItem {
   color: rgb(139, 188, 163);
+  padding-left: 10px;
 }
 .item img {
   width: 80px;

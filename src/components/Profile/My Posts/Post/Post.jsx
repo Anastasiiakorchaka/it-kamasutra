@@ -1,9 +1,10 @@
 import classes from './Post.module.css';
 
+
 const Post = (props) => {
   return(
-    <div>
-        My posts
+    <div className={classes.allItem}>
+        <h3>My posts</h3>
           <div className={classes.item}>
             <img src='https://img.freepik.com/premium-photo/beautiful-girl-avatar_984951-132.jpg'></img>
             <div>

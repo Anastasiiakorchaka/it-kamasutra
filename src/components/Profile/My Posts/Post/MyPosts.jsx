@@ -1,18 +1,19 @@
 import classes from './MyPosts.module.css';
 import Post from './Post';
 
-const MyPosts = () => {
+const MyPosts = (props) => {
+  const postDataElements = props.postData.map((item)=> {
+    return (<Post message={item.message} like={item.like}/>)
+  })
   return(
     <div>
-        My posts
+        <h3>My posts</h3>
         <div>
           <textarea></textarea>
           <button>Add Post</button>
         </div>
         <div className={classes.posts}>
-          <Post message='Hi, how are you' like='33'/>
-          <Post message='I am fine' like='14'/>
-          <Post message='I am learn JS' like ='55'/>
+          {postDataElements}
         </div>
       </div>
   )
