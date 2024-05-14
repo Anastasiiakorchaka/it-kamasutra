@@ -1,61 +1,26 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import state, { addNewPost } from './redux/state';
+import { subscribe } from './redux/state';
+import {newMessagesPage} from './redux/state'
 import reportWebVitals from './reportWebVitals';
+import ReactDOM from 'react-dom/client';
+import React from 'react';
+import App from './App';
 
-const dialogsData = [
-    {
-      id: 1,
-      name: 'Anastasiia'
-    },
-    {
-      id: 2,
-      name: 'Ivan'
-    },
-    {
-      id: 3, 
-      name: 'Valeria'
-    },
-    {
-      id: 4, 
-      name: 'Andrey'
-    }
-  ];
 
-  const messages = [
-    {
-      id: 1,
-      message:'Hi'
-    },
-    {
-      id: 2,
-      message:'How is your language.'
-    },
-    {
-      id: 3,
-      message:'Everything fine.'
-    },
-    {
-      id: 4,
-      message:'Yo'
-    },
-  ];
+let rerenderEntireTree = (state) => {
+  const root = ReactDOM.createRoot(document.getElementById('root'));
+  root.render(
+    <React.StrictMode>
+      <App state={state} addNewPost={addNewPost}  newMessagesPage={newMessagesPage}/>
+    </React.StrictMode>
+  );
+}
 
-  const postData = [
-    {id: 1, message: 'Hi', like: '33',},
-    {id: 2, message: 'I am fine', like: '14',},
-    {id: 3, message: 'I am learn JS', like: '55',},
-  ]
-  
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  
-  <React.StrictMode>
-    <App dialogsData={dialogsData} messages={messages} postData={postData}/>
-  </React.StrictMode>
-);
+rerenderEntireTree(state);
 
+//rerenderEntireTree в данном случае это сall back так как она приходит в другую функцию в качесве аргумента и мы ее вызываем в опеределенный момент. 
+subscribe(rerenderEntireTree);
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
