@@ -5,7 +5,6 @@ import React from 'react';
 
 
 const Dialogs = (props) => {
- console.log('dialog', props.addNewPost)
  
 const dialogsElements = props.dialogsData.dialogsData.map((names) =>{ 
   return(<DialogItem name={names.name} key={names.id}/>)
@@ -17,9 +16,14 @@ const messagesData = props.dialogsData.messages.map((dialog) => {
 let newElement = React.createRef();
 
 const hendelClick = () => {
+  props.addNewPost();
+  props.updateNewPostText('');
+}
+
+let onPostChange = () => {
   let text = newElement.current.value;
-  props.addNewPost(text)
-  // alert(text)
+  props.updateNewPostText(text);
+  //console.log('onPostChange', text);
 }
   
   return(
@@ -32,7 +36,7 @@ const hendelClick = () => {
         </div>
         <h3>My posts</h3>
         <div>
-          <textarea ref={newElement}></textarea>
+          <textarea onChange={onPostChange} ref={newElement} value={props.dialogsData.newPostTextDialogs}/>
           <button onClick={hendelClick}>Add Post</button>
         </div>
     </div>

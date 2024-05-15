@@ -42,6 +42,7 @@ const state = {
         message:'Yo'
       },
     ],
+    newPostTextDialogs:'IT-kamasutra.com',
   },
 
  messagesPage: {
@@ -59,15 +60,24 @@ const state = {
   ]
  },
 }
-export let addNewPost = (postMessage) => {
+
+window.state = state;
+export let addNewPost = () => {
   let newPost = {
     id: 4,
-    message: postMessage,
+    message: state.profile.newPostTextDialogs,
   };
   state.profile.messages.push(newPost);
+  state.profile.newPostTextDialogs = ' ';
   rerenderEntireTree(state);
 
 }
+export let updateNewPostText = (newText) => {
+  state.profile.newPostTextDialogs = newText;
+  rerenderEntireTree(state);
+
+}
+
 export let newMessagesPage = (postMessagePage) => {
   let newMessages = {
     id: 4,
