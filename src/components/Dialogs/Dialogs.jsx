@@ -22,8 +22,8 @@ const hendelClick = () => {
 
 let onPostChange = () => {
   let text = newElement.current.value;
+  console.log('text', text)
   props.updateNewPostText(text);
-  //console.log('onPostChange', text);
 }
   
   return(

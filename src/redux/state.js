@@ -46,12 +46,16 @@ const state = {
   },
 
  messagesPage: {
-  postData: [
-    {id: 1, message: 'Hi', like: '33',},
-    {id: 2, message: 'I am fine', like: '14',},
-    {id: 3, message: 'I am learn JS', like: '55',},
-  ]
- },
+  messagesprofile: {
+    postData: [
+      {id: 1, message: 'Hi', like: '33',},
+      {id: 2, message: 'I am fine', like: '14',},
+      {id: 3, message: 'I am learn JS', like: '55',},
+    ],
+    newPostTextMessages:'IT-kamasutra review',
+   },
+  },
+
  newPage: {
   newPost: [
     {id: 1, new: 'I started learning JS'},
@@ -78,13 +82,17 @@ export let updateNewPostText = (newText) => {
 
 }
 
-export let newMessagesPage = (postMessagePage) => {
+export let newMessagesPage = () => {
   let newMessages = {
     id: 4,
-    message: postMessagePage,
+    message: state.messagesPage.messagesprofile.newPostTextMessages ,
     like: '77',
   };
-  state.messagesPage.postData.push(newMessages);
+  state.messagesPage.messagesprofile.postData.push(newMessages);
+  rerenderEntireTree(state);
+}
+export let updateNewMessageText = (newText) => {
+  state.messagesPage.messagesprofile.newPostTextMessages = newText;
   rerenderEntireTree(state);
 }
 //observer патерн проектирования который позволяет компонентам подписыватся на изменения состояния или данных и реагировать на них

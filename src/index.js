@@ -1,7 +1,9 @@
 import './index.css';
-import state, { addNewPost } from './redux/state';
+import state from './redux/state';
+import { addNewPost } from './redux/state';
 import {updateNewPostText} from './redux/state';
 import { subscribe } from './redux/state';
+import {updateNewMessageText} from './redux/state'
 import {newMessagesPage} from './redux/state'
 import reportWebVitals from './reportWebVitals';
 import ReactDOM from 'react-dom/client';
@@ -12,7 +14,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 let rerenderEntireTree = (state) => {
   root.render(
     <React.StrictMode>
-      <App state={state} addNewPost={addNewPost}  newMessagesPage={newMessagesPage} updateNewPostText={updateNewPostText} />
+      <App state={state} addNewPost={addNewPost}  newMessagesPage={newMessagesPage} 
+        updateNewPostText={updateNewPostText} updateNewMessageText={updateNewMessageText}
+        />
     </React.StrictMode>
   );
 }
