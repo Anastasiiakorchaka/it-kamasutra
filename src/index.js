@@ -1,16 +1,26 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+//import state from './redux/state';
+import store from './redux/state';
 import reportWebVitals from './reportWebVitals';
+import ReactDOM from 'react-dom/client';
+import React from 'react';
+import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+let rerenderEntireTree = (state) => {
+  root.render(
+    <React.StrictMode>
+      <App state={store.getState()} addNewPost={store.addNewPost.bind(store)}  newMessagesPage={store.newMessagesPage.bind(store)} 
+        updateNewPostText={store.updateNewPostText.bind(store)} updateNewMessageText={store.updateNewMessageText.bind(store)}
+        />
+    </React.StrictMode>
+  );
+}
 
+rerenderEntireTree(store.getState());
+
+//rerenderEntireTree в данном случае это сall back так как она приходит в другую функцию в качесве аргумента и мы ее вызываем в опеределенный момент. 
+store.subscribe(rerenderEntireTree);
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals

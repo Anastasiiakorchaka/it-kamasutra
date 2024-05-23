@@ -1,8 +1,11 @@
 .nav{
   grid-area: n;
   background-color: deeppink;
+  padding: 20px;
 }
-.item{
+.item a{
   color: rgb(234, 234, 234);
   font-size: 25px; 
+  text-decoration: none;
 }
+

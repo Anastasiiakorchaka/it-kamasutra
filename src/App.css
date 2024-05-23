@@ -6,3 +6,8 @@
   grid-template-rows: 80px 1fr;
   grid-template-columns: 200px 1fr;
 }
+
+.appWrapperContent{
+  grid-area: c;
+  background-color: rgb(255, 245, 134);
+}
