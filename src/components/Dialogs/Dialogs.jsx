@@ -16,14 +16,14 @@ const messagesData = props.dialogsData.messages.map((dialog) => {
 let newElement = React.createRef();
 
 const hendelClick = () => {
-  props.addNewPost();
-  props.updateNewPostText('');
+  props.dispatch({type: 'ADD-NEW-POST'});
+  //props.updateNewPostText('');
+  
 }
 
 let onPostChange = () => {
   let text = newElement.current.value;
-  console.log('text', text)
-  props.updateNewPostText(text);
+  props.dispatch({type: 'UPDATE_NEW_POST_TEXT', newText: text});
 }
   
   return(
