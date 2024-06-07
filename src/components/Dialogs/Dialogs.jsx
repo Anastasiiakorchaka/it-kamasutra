@@ -2,6 +2,8 @@ import classes from './Dialogs.module.css'
 import DialogItem from './DialogItem/DialogItem';
 import Messages from './Message/Messages';
 import React from 'react';
+import { addNewPostActionCreator } from '../../redux/profileReducer';
+import { UpdateNewPostTextActionCreator } from '../../redux/profileReducer';
 
 
 const Dialogs = (props) => {
@@ -16,14 +18,12 @@ const messagesData = props.dialogsData.messages.map((dialog) => {
 let newElement = React.createRef();
 
 const hendelClick = () => {
-  props.dispatch({type: 'ADD-NEW-POST'});
-  //props.updateNewPostText('');
-  
+  props.dispatch(addNewPostActionCreator()); 
 }
 
 let onPostChange = () => {
   let text = newElement.current.value;
-  props.dispatch({type: 'UPDATE_NEW_POST_TEXT', newText: text});
+  props.dispatch(UpdateNewPostTextActionCreator(text));
 }
   
   return(

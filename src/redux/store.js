@@ -1,3 +1,7 @@
+import newPageReducer from "./newPageReducer"
+import messagesPageReducer from "./messagesPageReducer"
+import profileReducer from "./profileReducer"
+
 let store = {
   _state: {
     profile: {
@@ -71,31 +75,10 @@ let store = {
   // action это объект который описывает какое дейсвие нужно совершить у это объекта обязательно должно быть свойсво тип который прописываеся в формате строки
   // там мы указываем глагол что мы должны сделать.
   dispatch(action){
-      if(action.type === 'ADD-NEW-POST') {
-        let newPost = {
-          id: 4,
-          message: this._state.profile.newPostTextDialogs,
-        };
-        this._state.profile.messages.push(newPost);
-        this._state.profile.newPostTextDialogs = ' ';
-        this._rerenderEntireTree(this._state);
-      
-      } else if (action.type === 'UPDATE_NEW_POST_TEXT') {
-        this._state.profile.newPostTextDialogs = action.newText;
-        this._rerenderEntireTree(this._state);
-      } else if (action.type === 'NEW_MESSAGESPAGES_PAGE') {
-        let newMessages = {
-          id: 4,
-          message: this._state.messagesPage.messagesprofile.newPostTextMessages ,
-          like: '77',
-        };
-        this._state.messagesPage.messagesprofile.postData.push(newMessages);
-        this._rerenderEntireTree(this._state);
-      } else if (action.type === 'UPDATE_NEW_MESSAGE_TEXT') {
-        this._state.messagesPage.messagesprofile.newPostTextMessages = action.newText;
-        this._rerenderEntireTree(this._state);
-      }
+    this._state.profilePage = profileReducer(this._state.profile, action);
+    this._state.messagesPageReducer = messagesPageReducer(this._state.messagesPage, action);
+    this._state.newPageReducer = newPageReducer(this._state.newPage, action);
+    this._rerenderEntireTree(this._state)
   }
 }
-
 export default store;
