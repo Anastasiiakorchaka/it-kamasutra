@@ -1,3 +1,5 @@
+import React from 'react';
+
 const New = (props) =>{
   return(
     <div>
@@ -7,4 +9,4 @@ const New = (props) =>{
 }
 
 
-export default New
+export default New;

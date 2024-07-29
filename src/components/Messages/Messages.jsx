@@ -1,12 +1,12 @@
-import classes from './Profile.module.css';
-import MyPosts from './My Posts/Post/MyPosts';
+import MyPostsContainer from './My Posts/Post/MyPostsContainer';
 import ProfileInfo from './ProfileInfo';
 
 const Messages = (props) => {
+  console.log('messages', props.store)
   return(
     <div>
       <ProfileInfo/>
-      <MyPosts  dispatch={props.dispatch} postData={props.postData.messagesprofile} />
+      <MyPostsContainer store={props.store}/>
     </div>
   )
 }

@@ -1,4 +1,4 @@
-const ADD_NEW_POST ='ADD-NEW-POST'
+const ADD_NEW_POST ='ADD_NEW_POST'
 const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT'
 
 let initialState = {

@@ -3,67 +3,7 @@ import messagesPageReducer from "./messagesPageReducer"
 import profileReducer from "./profileReducer"
 
 let store = {
-  _state: {
-    profile: {
-      dialogsData: [
-        {
-          id: 1,
-          name: 'Anastasiia'
-        },
-        {
-          id: 2,
-          name: 'Ivan'
-        },
-        {
-          id: 3, 
-          name: 'Valeria'
-        },
-        {
-          id: 4, 
-          name: 'Andrey'
-        }
-      ],
-    
-      messages: [
-        {
-          id: 1,
-          message:'Hi'
-        },
-        {
-          id: 2,
-          message:'How is your language.'
-        },
-        {
-          id: 3,
-          message:'Everything fine.'
-        },
-        {
-          id: 4,
-          message:'Yo'
-        },
-      ],
-      newPostTextDialogs:'IT-kamasutra.com',
-    },
   
-   messagesPage: {
-    messagesprofile: {
-      postData: [
-        {id: 1, message: 'Hi', like: '33',},
-        {id: 2, message: 'I am fine', like: '14',},
-        {id: 3, message: 'I am learn JS', like: '55',},
-      ],
-      newPostTextMessages:'IT-kamasutra review',
-     },
-    },
-  
-   newPage: {
-    newPost: [
-      {id: 1, new: 'I started learning JS'},
-      {id: 2, new:`I've been teaching JS for three years.`},
-      {id: 3, new:'My salary is 3000$;'},
-    ]
-   },
-  },
   getState () {
     return this._state
   },

@@ -1,3 +1,4 @@
+
 let initialState = {
   newPost: [
     {id: 1, new: 'I started learning JS'},
