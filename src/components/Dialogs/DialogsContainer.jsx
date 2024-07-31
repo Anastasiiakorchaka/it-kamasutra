@@ -3,27 +3,31 @@ import store from '../../redux/redux-store';
 import {addNewPostActionCreator} from'../../redux/profileReducer';
 import {UpdateNewPostTextActionCreator} from'../../redux/profileReducer';
 import Dialogs from './Dialogs';
+import StoreContext from '../../StoreContext';
 
 const DialogsContainer = (props) => {
- console.log('dialod', props)
-let state = store.getState();
-//console.log('DialogsContainer', state)
-
-const handelClick = () => {
-  props.store.dispatch(addNewPostActionCreator()); 
-}
-
-let onPostChange = (text) => {
-  //let text = newElement.current.value;
-  props.store.dispatch(UpdateNewPostTextActionCreator(text));
-}
+  return (
+    <StoreContext.Consumer>{ 
+      (store) =>  {
+          let state = store.getState();
+          
   
-  return(
-    <Dialogs handelClick={handelClick} onPostChange={onPostChange} 
-    dialogsData={state.profile.dialogsData} 
-    messages={state.profile.messages}
-    newPostTextDialogs={state.profile.newPostTextDialogs}
-    />
-  )
+          const handelClick = () => {
+            store.dispatch(addNewPostActionCreator()); 
+          }
+  
+          let onPostChange = (text) => {
+            store.dispatch(UpdateNewPostTextActionCreator(text));
+          }
+  
+          return <Dialogs handelClick={handelClick} onPostChange={onPostChange} 
+              dialogsData={state.profile.dialogsData} 
+              messages={state.profile.messages}
+              newPostTextDialogs={state.profile.newPostTextDialogs}
+        />}
+        }
+      </StoreContext.Consumer>
+  ) 
 }
+
 export default DialogsContainer;
