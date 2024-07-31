@@ -13,7 +13,6 @@ const handelClick = () => {
   props.store.dispatch(addNewPostActionCreator()); 
 }
 
-// разобратся с тестом
 let onPostChange = (text) => {
   //let text = newElement.current.value;
   props.store.dispatch(UpdateNewPostTextActionCreator(text));

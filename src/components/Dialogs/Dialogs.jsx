@@ -2,8 +2,6 @@ import classes from './Dialogs.module.css'
 import DialogItem from './DialogItem/DialogItem';
 import Messages from './Message/Messages';
 import React from 'react';
-//import { addNewPostActionCreator } from '../../redux/profileReducer';
-//import { UpdateNewPostTextActionCreator } from '../../redux/profileReducer';
 
 
 const Dialogs = (props) => {
