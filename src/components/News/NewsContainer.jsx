@@ -6,7 +6,7 @@ import New from "./New";
 
 const NewsContainer = (props) => {
   let state = store.getState();
-  console.log('dd', state.newPage)
+  
   const render = () => {
     props.store.dispatch(newPageReducer); 
   }

@@ -9,7 +9,6 @@ import StoreContext from './StoreContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 let rerenderEntireTree = (state) => {
-  console.log('index', store)
   root.render(
     <React.StrictMode>
       <StoreContext.Provider>

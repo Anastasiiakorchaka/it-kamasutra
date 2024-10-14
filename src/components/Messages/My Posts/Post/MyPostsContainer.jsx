@@ -1,7 +1,6 @@
 import React from 'react';
 import { newMessagesPageActionCreator } from '../../../../redux/messagesPageReducer';
 import {updateNewMessageTextActionCreator} from '../../../../redux/messagesPageReducer';
-//import store from '../../../../redux/redux-store';
 import MyPosts from './MyPosts';
 import store from '../../../../redux/redux-store';
 import StoreContext from '../../../../StoreContext';

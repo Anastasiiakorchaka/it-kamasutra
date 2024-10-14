@@ -5,7 +5,6 @@ import { Provider } from 'react-redux';
 import store from '../../redux/redux-store';
 
 const Messages = (props) => {
-  console.log('messages', props.store)
   return(
       <div>
         <ProfileInfo/>
